@@ -1,0 +1,58 @@
+1. Create table 
+
+stud(id,name) (use I'd as primary key)
+stud_details(id,city,mobileno) (Use I'd as foreign key)
+
+CREATE TABLE stud(id integer PRIMARY KEY,name varchar(20));
+CREATE TABLE stud_details(id interger,city varchar(20),mobile_no integer,FOREIGN KEY(id) REFERENCES stud(id));
+
+
+2. Insert minimum 10 records for each table.
+
+INSERT INTO stud VALUES(1,'khushi');
+INSERT INTO stud VALUES(2,'ishani');
+INSERT INTO stud VALUES(3,'heer');
+INSERT INTO stud VALUES(4,'Hiya');
+INSERT INTO stud VALUES(5,'Krishna');
+INSERT INTO stud VALUES(6,'Om');
+INSERT INTO stud VALUES(7,'Sai');
+INSERT INTO stud VALUES(8,'Ram');
+INSERT INTO stud VALUES(9,'Shiv');
+INSERT INTO stud VALUES(10,'Shankar');
+
+INSERT INTO stud_details VALUES(1,'Surat',9090909090);
+INSERT INTO stud_details VALUES(2,'Surat',9077909090);
+INSERT INTO stud_details VALUES(3,'Bardoli',8877909090);
+INSERT INTO stud_details VALUES(4,'Baroda',8800909090);
+INSERT INTO stud_details VALUES(5,'Navsari',8800669090);
+INSERT INTO stud_details VALUES(6,'Pune',8990669090);
+INSERT INTO stud_details VALUES(7,'Pune',6690669090);
+INSERT INTO stud_details VALUES(8,'Surat',6698869090);
+INSERT INTO stud_details VALUES(9,'Mandvi',6998869090);
+INSERT INTO stud_details VALUES(10,'Bardoli',9998869090);
+
+
+3. Display whose student come from the Surat City.
+SELECT s.name FROM stud s
+JOIN stud_details sd
+ON sd.id=s.id
+WHERE city='Surat';
+
+khushi
+ishani
+ram
+
+4. Display student details whose city name start with 'B'.
+SELECT * FROM stud_details
+WHERE city LIKE 'B%';
+
+3|Bardoli|8877909090
+4|Baroda|8800909090
+10|Bardoli|9998869090
+
+
+5. Update mobileno who are comming from 'Surat'
+
+UPDATE stud_details
+SET mobile_no=9898989898
+WHERE city='Surat';
